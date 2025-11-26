@@ -1,0 +1,55 @@
+/* -------- Header Base -------- */
+.main-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #ece3d5;
+  padding: 15px 0;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Container */
+.nav-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Left & Right Menus */
+.nav-left, .nav-right {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+}
+
+.nav-left li a,
+.nav-right li a {
+  text-decoration: none;
+  font-size:20px;
+  color: #000;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-left li a:hover,
+.nav-right li a:hover {
+  color: #634028;
+}
+
+/* Center Logo */
+.nav-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-logo img {
+  height: 70px;
+  width: auto;
+  cursor: pointer;
+}
