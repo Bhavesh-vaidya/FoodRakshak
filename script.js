@@ -59,6 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // When progress is 1, the image fully in place and the wrapper continues scrolling normally,
     // the sticky hero will naturally unpin because its wrapper scrolled out of the pin range.
     // We don't modify hero.position in JS at all.
+
+    // Fade white text based on progress
+
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
