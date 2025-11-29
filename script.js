@@ -1,4 +1,4 @@
-// HERO SCROLL REVEAL ANIMATION
+// HERO SCROLL REVEAL ANIMATION (Smooth, No Disappear Issue)
 document.addEventListener("DOMContentLoaded", () => {
   const hero = document.querySelector('.hero');
   const bg = document.querySelector('.hero-bg');
@@ -10,19 +10,21 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('scroll', () => {
     let scrollY = window.scrollY;
 
-    if (scrollY <= heroHeight) {
-      // Pin the hero
+    // Limit progress between 0 and 1
+    let progress = Math.min(scrollY / heroHeight, 1);
+
+    // Smooth reveal movement
+    let translateValue = 100 - (progress * 100);
+    bg.style.transform = `translateY(${translateValue}%)`;
+
+    if (scrollY < heroHeight) {
+      // While within hero section → keep sticky
       hero.style.position = "sticky";
       hero.style.top = "0";
-
-      // Reveal the background image
-      let progress = scrollY / heroHeight;
-      let translateValue = 100 - (progress * 100);
-      bg.style.transform = `translateY(${translateValue}%)`;
-
     } else {
-      // Unpin and continue normal scrolling
+      // Past hero section → release smoothly
       hero.style.position = "relative";
+      bg.style.transform = `translateY(0%)`; // keep final revealed state
     }
   });
 });
