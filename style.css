@@ -1,51 +1,62 @@
 body {
-  padding-top: 2%; /* adjust based on header height */
+  margin: 0; /* adjust based on header height */
 }
 
-.divspace{
-  height: 200vh;
+.divspace1{
+  height: 100vh;
+}
+.divspace2{
+  height: 100vh;
 }
 
+.hero-wrap {
+  height: 200vh; /* change this to tune how long hero stays pinned */
+  position: relative; /* IMPORTANT: sticky is clipped to this container */
+  overflow: visible;
+}
+
+/* HERO: this element becomes sticky inside the wrapper */
 .hero {
   position: sticky;
   top: 0;
-  height: 100vh;
-  overflow: hidden;
-  background: #f7f4e8;
+  height: 100vh;          /* visible viewport for the hero */
   display: flex;
   align-items: center;
   padding: 0 6vw;
+  background: var(--bg-beige);
+  overflow: hidden;
   z-index: 2;
 }
 
-/* Main headline */
-.hero h1 {
-  font-size: clamp(2.5rem, 6vw, 6rem);
-  font-weight: 800;
-  line-height: 1.1;
-  color: #634028; /* deep green */
-  max-width: 900px;
-  position: relative;
-  z-index: 2;
-}
-
-/* Second line subtle styling */
-.hero h1 span {
-  font-weight: 500;
-  font-size: clamp(1.6rem, 3vw, 2.8rem);
-  color: #634028;
-  opacity: 0.85;
-  display: inline-block;
-  margin-top: 20px;
-}
-
+/* background image that will rise from below */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("https://raw.githubusercontent.com/Bhavesh-vaidya/FoodRakshak/main/Assets/Images/home_bg.png");
+  background-image: url("https://raw.githubusercontent.com/Bhavesh-vaidya/FoodRakshak/main/Assets/Images/home_bg.jpg");
   background-size: cover;
   background-position: center;
-  transform: translateY(100%); /* Image starts BELOW */
-  transition: transform 0.2s linear;
+  transform: translateY(100%); /* start below */
+  will-change: transform;
   z-index: 1;
+}
+
+/* headline on top */
+.hero-title{
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0;
+  color: #634028;
+  font-weight: 800;
+  line-height: 1.05;
+  font-size: clamp(2.5rem, 6vw, 6rem);
+}
+
+/* subtitle line */
+.hero-title span{
+  display: inline-block;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  opacity: .9;
+  margin-top: 20px;
 }
