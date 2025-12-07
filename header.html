@@ -1,27 +1,42 @@
 <!-- header.html -->
 <header class="main-header">
-  <nav class="nav-container">
-    
-    <!-- LEFT MENU -->
-    <ul class="nav-left">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="services.html">Services</a></li>
-    </ul>
+  <div class="nav-container">
 
-    <!-- LOGO CENTER -->
+    <!-- LOGO LEFT -->
     <div class="nav-logo">
       <a href="index.html">
         <img src="https://raw.githubusercontent.com/Bhavesh-vaidya/FoodRakshak/main/Assets/Images/logo.png" alt="Logo">
       </a>
     </div>
 
-    <!-- RIGHT MENU -->
-    <ul class="nav-right">
+    <!-- HAMBURGER RIGHT -->
+    <div class="nav-hamburger" id="openMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+  <!-- FULLSCREEN MENU -->
+  <div class="fullscreen-menu" id="menuPanel">
+
+    <div class="menu-close" id="closeMenu">×</div>
+
+    <ul class="menu-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="blogs.html">Blogs</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
 
-  </nav>
+    <div class="menu-social">
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-tripadvisor"></i>
+    </div>
+
+  </div>
 </header>

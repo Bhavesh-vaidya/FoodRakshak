@@ -1,55 +1,115 @@
-/* -------- Header Base -------- */
+/* ---------- MAIN NAV BAR ---------- */
 .main-header {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background: #ece3d5;
-  padding: 15px 0;
+  padding: 20px 0;
+  background: #ffe7d8;
   z-index: 1000;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Container */
 .nav-container {
   width: 90%;
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 }
 
-/* Left & Right Menus */
-.nav-left, .nav-right {
+/* LOGO LEFT */
+.nav-logo img {
+  height: 70px;
+}
+
+/* HAMBURGER RIGHT */
+.nav-hamburger {
+  width: 35px;
+  cursor: pointer;
   display: flex;
-  gap: 50px;
-  list-style: none;
+  flex-direction: column;
+  gap: 7px;
 }
 
-.nav-left li a,
-.nav-right li a {
-  text-decoration: none;
-  font-size:20px;
-  color: #000;
-  font-weight: 500;
+.nav-hamburger span {
+  height: 4px;
+  width: 100%;
+  background: #634028;
+  border-radius: 10px;
   transition: 0.3s;
 }
 
-.nav-left li a:hover,
-.nav-right li a:hover {
+/* ---------- FULL SCREEN MENU PANEL ---------- */
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: #ffe7d8;
   color: #634028;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  transform: translateY(-100%);
+  transition: 0.4s ease;
+  z-index: 2000;
 }
 
-/* Center Logo */
-.nav-logo {
+/* Show menu */
+.fullscreen-menu.active {
+  transform: translateY(0%);
+}
+
+/* Close Button */
+.menu-close {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 40px;
+  right: 40px;
+  font-size: 45px;
+  color: white;
+  background: #634028;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-.nav-logo img {
-  height: 70px;
-  width: auto;
-  cursor: pointer;
+/* Links */
+.menu-links {
+  list-style: none;
+  text-align: center;
+}
+
+.menu-links li {
+  margin: 20px 0;
+}
+
+.menu-links a {
+  font-size: 50px;
+  text-decoration: none;
+  color: #634028;
+  font-family: serif;
+  transition: 0.3s;
+}
+
+.menu-links a.active {
+  color: #f5b700; /* yellow like example */
+}
+
+.menu-links a:hover {
+  transform: scale(1.1);
+}
+
+/* Social Icons */
+.menu-social {
+  display: flex;
+  gap: 25px;
+  font-size: 30px;
+  color: #3fa5b1;
 }

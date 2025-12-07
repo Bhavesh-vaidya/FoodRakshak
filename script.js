@@ -68,3 +68,50 @@ document.addEventListener("DOMContentLoaded", () => {
   // initial update in case page isn't scrolled to top
   update();
 });
+
+
+//=======about us=============
+// TYPEWRITER: continuous typing + deleting loop
+document.addEventListener("DOMContentLoaded", () => {
+  const textEl = document.getElementById("type-text");
+  const cursorEl = document.querySelector(".type-cursor");
+
+  if (!textEl || !cursorEl) return;
+
+  const fullText = "Who We Are ..."; // the text to type
+  const typingSpeed = 100;     // ms per character when typing
+  const deletingSpeed = 60;    // ms per character when deleting (backspace)
+  const pauseAfterTyping = 1500; // ms pause when full text typed
+  const pauseAfterDeleting = 600; // ms pause after deletion before re-typing
+
+  // helper sleep
+  const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+  async function typeLoop() {
+    while (true) {
+      // TYPE forward
+      for (let i = 1; i <= fullText.length; i++) {
+        textEl.textContent = fullText.slice(0, i);
+        // keep cursor visible and positioned (cursor is separate element)
+        cursorEl.style.opacity = "1";
+        await wait(typingSpeed);
+      }
+
+      // Pause at full text
+      await wait(pauseAfterTyping);
+
+      // DELETE backwards
+      for (let i = fullText.length; i >= 0; i--) {
+        textEl.textContent = fullText.slice(0, i);
+        await wait(deletingSpeed);
+      }
+
+      // Pause before starting again
+      await wait(pauseAfterDeleting);
+    }
+  }
+
+  // Kick off the loop
+  typeLoop().catch(err => console.error("TypeLoop error:", err));
+});
+

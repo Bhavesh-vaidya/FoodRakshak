@@ -3,9 +3,6 @@ body {
   background: #fffdfa; /* adjust based on header height */
 }
 
-.divspace1{
-  height: 100vh;
-}
 .divspace2{
   height: 100vh;
 }
@@ -63,4 +60,96 @@ body {
   margin-top: 20px;
 }
 
+
+/* ---------------- ABOUT SECTION ---------------- */
+.about-section {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  padding: 80px 5%;
+  gap: 50px;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content h1 {
+  font-size: 70px;
+  margin-bottom: 20px;
+  color: #634028;
+}
+
+.about-content p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #000000;
+}
+
+
+
+/* ---- LETTER BY LETTER ANIMATION ---- */
+
+/* ---------- Typewriter Heading ---------- */
+.about-typing {
+  font-size: 40px;          /* adjust to match your design */
+  color: #634028;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* The typed text container */
+#type-text {
+  display: inline-block;
+  line-height: 1;
+  min-width: 0;
+}
+
+/* Vertical cursor (block with 2px width looks like a caret/pipe) */
+.type-cursor {
+  width: 2px;
+  height: 1.1em;            /* matches text height */
+  margin-left: 6px;
+  background: #634028;      /* cursor color */
+  display: inline-block;
+  transform-origin: center;
+  animation: blinkCursor 0.8s steps(2, start) infinite;
+}
+
+/* Subtle "typing" reveal smoothing */
+#type-text,
+.type-cursor {
+  transition: opacity 0.05s linear;
+}
+
+/* Cursor blink */
+@keyframes blinkCursor {
+  0% { opacity: 1; }
+  49% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Make smaller on narrow screens */
+@media (max-width: 900px) {
+  .about-typing { font-size: 32px; }
+  .type-cursor { height: 1em; }
+}
 
