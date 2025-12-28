@@ -115,3 +115,72 @@ document.addEventListener("DOMContentLoaded", () => {
   typeLoop().catch(err => console.error("TypeLoop error:", err));
 });
 
+
+
+// ===============Services carousel==============
+const track = document.querySelector(".services-carousel");
+let cards = document.querySelectorAll(".service-card");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+const cardGap = 30;
+let index = 1;
+let isTransitioning = false;
+
+// Clone first & last
+const firstClone = cards[0].cloneNode(true);
+const lastClone = cards[cards.length - 1].cloneNode(true);
+
+firstClone.classList.add("clone");
+lastClone.classList.add("clone");
+
+track.appendChild(firstClone);
+track.insertBefore(lastClone, cards[0]);
+
+cards = document.querySelectorAll(".service-card");
+
+const cardWidth = cards[0].offsetWidth + cardGap;
+
+// Initial position
+track.style.transform = `translateX(-${cardWidth * index}px)`;
+
+// Slide function
+function moveCarousel() {
+  track.style.transition = "transform 0.5s ease";
+  track.style.transform = `translateX(-${cardWidth * index}px)`;
+}
+
+// Next
+nextBtn.addEventListener("click", () => {
+  if (isTransitioning) return;
+  isTransitioning = true;
+  index++;
+  moveCarousel();
+});
+
+// Prev
+prevBtn.addEventListener("click", () => {
+  if (isTransitioning) return;
+  isTransitioning = true;
+  index--;
+  moveCarousel();
+});
+
+// Loop handling
+track.addEventListener("transitionend", () => {
+  isTransitioning = false;
+
+  if (cards[index].classList.contains("clone")) {
+    track.style.transition = "none";
+
+    if (index === cards.length - 1) {
+      index = 1; // jump to real first
+    } else if (index === 0) {
+      index = cards.length - 2; // jump to real last
+    }
+
+    track.style.transform = `translateX(-${cardWidth * index}px)`;
+  }
+});
+
+
